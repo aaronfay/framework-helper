@@ -1,2 +1,2 @@
-# framework-helper
+# Vuetify-Starter-Template
 Created with CodeSandbox
