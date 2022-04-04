@@ -7,7 +7,7 @@
     <v-main>
       <v-container>
         <v-card-text id="main"
-          ><span class="person">1s</span> ki{{ tense
+          ><span class="person">Q</span> ki{{ tense
           }}<span class="filler">{{ firstVerb }}</span
           >{{ direction }} cî
           <span class="filler">{{ firstNoun }}</span> ê-<span class="filler">{{
@@ -18,7 +18,7 @@
         </v-card-text>
 
         <v-card-text id="main"
-          ><span class="person">2s</span> êhâ, ni{{ tense
+          ><span class="person">A</span> êhâ, ni{{ tense
           }}<span class="filler">{{ firstVerb }}</span
           >{{ direction }} <span class="filler">{{ firstNoun }}</span> ê-<span
             class="filler"
@@ -38,8 +38,11 @@
                     <v-list-item v-for="(item, i) in verbs" :key="i">
                       <v-list-item-content>
                         <v-list-item-title
-                          v-text="item.text"
+                          v-text="item.lemma"
                         ></v-list-item-title>
+                        <v-list-item-subtitle
+                          v-text="item.definition"
+                        ></v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </v-list-item-group>
@@ -59,6 +62,9 @@
                         <v-list-item-title
                           v-text="item.text"
                         ></v-list-item-title>
+                        <v-list-item-subtitle
+                          v-text="item.definition"
+                        ></v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </v-list-item-group>
@@ -76,8 +82,11 @@
                     <v-list-item v-for="(item, i) in otherVerbs" :key="i">
                       <v-list-item-content>
                         <v-list-item-title
-                          v-text="item.text"
+                          v-text="item.lemma"
                         ></v-list-item-title>
+                        <v-list-item-subtitle
+                          v-text="item.definition"
+                        ></v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </v-list-item-group>
@@ -97,6 +106,9 @@
                         <v-list-item-title
                           v-text="item.text"
                         ></v-list-item-title>
+                        <v-list-item-subtitle
+                          v-text="item.definition"
+                        ></v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </v-list-item-group>
@@ -193,50 +205,68 @@ export default {
     verbs: [
       {
         text: "wâpam",
+        lemma: "wâpamêw",
+        definition: "s/he sees s.o.",
       },
       {
         text: "sâmin",
+        lemma: "sâminêw",
+        definition: "s/he touches s.o.",
       },
       {
         text: "nitohtaw",
+        lemma: "nitohtawêw",
+        definition: "s/he listens to s.o",
       },
     ],
     verbModel: 0,
     nouns: [
       {
         text: "wâpos",
+        definition: "a rabbit",
       },
       {
         text: "atim",
+        definition: "a dog",
       },
       {
         text: "picikwâs",
+        definition: "an apple",
       },
     ],
     nounModel: 0,
     otherVerbs: [
       {
         text: "pêhtaw",
+        lemma: "pêhtawêw",
+        definition: "s/he hears s.o.",
       },
       {
         text: "mow",
+        lemma: "mowêw",
+        definition: "s/he eats s.o.",
       },
       {
         text: "kakwêcim",
+        lemma: "kakwêcimêw",
+        definition: "s/he asks s.o.",
       },
     ],
     otherVerbModel: 0,
     otherNouns: [
       {
         text: "sômin",
+        definition: "a raisin",
         obviate: "a",
       },
       {
         text: "okiniy",
+        definition: "a tomato",
         obviate: "a",
       },
       {
         text: "sôkâw",
+        definition: "sugar",
         obviate: "a",
       },
     ],
@@ -263,7 +293,7 @@ export default {
 }
 .person {
   color: #555;
-  padding-right: 25px;
+  padding-right: 5px;
 }
 .v-list-item__title {
   font-size: 1.7em;
